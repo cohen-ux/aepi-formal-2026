@@ -102,8 +102,8 @@ const schedule = [
 events:[
 {time:"12:00 PM",name:"Both Buses Depart Miami",tag:"transport",detail:{from:"6000 San Amaro Drive, Coral Gables",note:"2 buses, both leave at noon. Be there 15 min early."}},
 {time:"4:00 PM",name:"Arrive at Hotel",tag:"transport",detail:{hotel:"TownePlace Suites at Flamingo Crossings, 13295 Hartzog Rd, Winter Garden, FL 34787",note:"Pick up your key at the front desk.<br>If you're driving, check-in starts at 4 PM."}},
-{time:"8:00 PM",name:"McQueen's Social Lounge",tag:"venue",detail:{venue:"McQueen's Social Lounge",window:"8:00 PM – 11:00 PM",note:"Dresses for the ladies. $2K prepaid bar tab."}},
-{time:"11:00 PM",name:"Sessions",tag:"venue",detail:{venue:"Sessions",window:"11:00 PM – 2:00 AM",note:"10 bottles Tito's, 5-6 tables. Club. Walkable from McQueen's."}},
+{time:"8:00 PM",name:"McQueen's",tag:"venue",detail:{venue:"McQueen's Social Lounge",window:"8:00 PM – 11:00 PM",dresscode:"Going out Clothes",note:"$2K prepaid bar tab."}},
+{time:"11:00 PM",name:"Sessions",tag:"venue",detail:{venue:"Sessions",window:"11:00 PM – 2:00 AM",dresscode:"Going out Clothes",note:"10 bottles Tito's, 5-6 tables. Club. Walkable from McQueen's."}},
 ]
 },
 { day:"Saturday",date:"April 18, 2026",label:"EPCOT Day",
@@ -168,6 +168,7 @@ const d=ev.detail;
 if(d.venue)html+=`<dt>Venue</dt><dd>${d.venue}</dd>`;
 if(d.window)html+=`<dt>Time</dt><dd>${d.window}</dd>`;
 if(d.cost)html+=`<dt>Cost</dt><dd>${d.cost}</dd>`;
+if(d.dresscode)html+=`<dt>Dress Code</dt><dd>${d.dresscode}</dd>`;
 if(d.location)html+=`<dt>Location</dt><dd>${d.location}</dd>`;
 if(d.from)html+=`<dt>Pickup</dt><dd>${d.from}</dd>`;
 if(d.dropoff)html+=`<dt>Drop-off</dt><dd>${d.dropoff}</dd>`;
