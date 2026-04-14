@@ -8,11 +8,11 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --navy:#0a1628;--navy-light:#111f3a;--navy-mid:#162748;
-  --gold:#c9a84c;--gold-light:#e0c872;--gold-dim:#8a7235;
-  --cream:#f5f0e8;--cream-dark:#e8dfd0;
-  --white:#fff;--text:#d4cfc5;--text-bright:#ece7db;
-  --green:#2a6e4e;--red:#b34040;
+--navy:#0a1628;--navy-light:#111f3a;--navy-mid:#162748;
+--gold:#c9a84c;--gold-light:#e0c872;--gold-dim:#8a7235;
+--cream:#f5f0e8;--cream-dark:#e8dfd0;
+--white:#fff;--text:#d4cfc5;--text-bright:#ece7db;
+--green:#2a6e4e;--red:#b34040;
 }
 html{scroll-behavior:smooth}
 body{font-family:'Source Sans Pro',sans-serif;background:var(--navy);color:var(--text);min-height:100vh}
@@ -71,179 +71,170 @@ body{font-family:'Source Sans Pro',sans-serif;background:var(--navy);color:var(-
 .stat-box .val{font-family:'Playfair Display',serif;font-size:28px;color:var(--gold)}
 .stat-box .label{font-size:11px;color:var(--gold-dim);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
 @media(max-width:600px){
-  .event-time{width:80px;min-width:80px;font-size:11px;padding:10px 8px}
-  .event-name{font-size:13px;padding:10px 8px}
-  .event-detail{padding:0 8px 12px 88px}
-  .room-grid{grid-template-columns:1fr}
-  .tabs{max-width:100%}
-  .tab{font-size:11px;padding:10px 4px;letter-spacing:1px}
-  .detail-grid{grid-template-columns:1fr}
+.event-time{width:80px;min-width:80px;font-size:11px;padding:10px 8px}
+.event-name{font-size:13px;padding:10px 8px}
+.event-detail{padding:0 8px 12px 88px}
+.room-grid{grid-template-columns:1fr}
+.tabs{max-width:100%}
+.tab{font-size:11px;padding:10px 4px;letter-spacing:1px}
+.detail-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <div class="topbar">
-  <div class="topbar-inner">
-    <h1>AEPi Formal <span>2026</span></h1>
-    <div class="subtitle">Orlando &middot; April 17–19</div>
-    <div class="tabs">
-      <div class="tab active" onclick="showPage('schedule')">Schedule</div>
-      <div class="tab" onclick="showPage('rooming')">Rooming List</div>
-      <div class="tab" onclick="showPage('bus')">Bus List</div>
-    </div>
-  </div>
+<div class="topbar-inner">
+<h1>AEPi Formal <span>2026</span></h1>
+<div class="subtitle">Orlando &middot; April 17–19</div>
+<div class="tabs">
+<div class="tab active" onclick="showPage('schedule')">Schedule</div>
+<div class="tab" onclick="showPage('rooming')">Rooming List</div>
+<div class="tab" onclick="showPage('bus')">Bus List</div>
+</div>
+</div>
 </div>
 <div class="page active" id="page-schedule"></div>
 <div class="page" id="page-rooming"></div>
 <div class="page" id="page-bus"></div>
 <script>
 const schedule = [
-  {
-    day:"Friday",date:"April 17, 2026",label:"Arrive + Night Out",
-    events:[
-      {time:"12:00 PM",name:"Both Buses Depart Miami",tag:"transport",detail:{from:"6000 San Amaro Drive, Coral Gables",note:"2 buses, both leave at noon. Be there 15 min early."}},
-      {time:"4:00 PM",name:"Arrive at Hotel",tag:"transport",detail:{hotel:"TownePlace Suites at Flamingo Crossings, 13295 Hartzog Rd, Winter Garden, FL 34787"}},
-      {time:"8:00 PM",name:"McQueen's Social Lounge",tag:"venue",detail:{venue:"McQueen's Social Lounge",window:"8:00 PM – 11:00 PM",note:"Dresses for the ladies. $2K prepaid bar tab."}},
-      {time:"11:00 PM",name:"Sessions",tag:"venue",detail:{venue:"Sessions",window:"11:00 PM – 2:00 AM",note:"10 bottles Tito's, 5-6 tables. Club. Walkable from McQueen's."}},
-    ]
-  },
-  {
-    day:"Saturday",date:"April 18, 2026",label:"EPCOT Day",
-    events:[
-      {time:"10:20 AM",name:"Meet at Spaceship Earth",tag:"epcot",detail:{location:"Base of the big silver ball, EPCOT entrance"}},
-      {time:"11:00 AM",name:"Drink Around the World",tag:"epcot",detail:{route:"Counterclockwise: Mexico → Norway → China → Germany → Italy → America → Japan → Morocco → France → UK → Canada",pace:"Recommended ~30 min per country"}},
-    ]
-  },
-  {
-    day:"Sunday",date:"April 19, 2026",label:"Checkout & Return",
-    events:[
-      {time:"10:00 AM",name:"Hotel Checkout",tag:"transport",detail:{note:"Checkout at 10AM."}},
-      {time:"10:00 AM",name:"All Buses Depart Orlando",tag:"transport",detail:{note:"Buses leave from hotel. Don't be late."}},
-      {time:"~2:00 PM",name:"Arrive Back in Miami",tag:"transport",detail:{dropoff:"6000 San Amaro Drive, Coral Gables"}},
-    ]
-  }
+{ day:"Friday",date:"April 17, 2026",label:"Arrive + Night Out",
+events:[
+{time:"12:00 PM",name:"Both Buses Depart Miami",tag:"transport",detail:{from:"6000 San Amaro Drive, Coral Gables",note:"2 buses, both leave at noon. Be there 15 min early."}},
+{time:"4:00 PM",name:"Arrive at Hotel",tag:"transport",detail:{hotel:"TownePlace Suites at Flamingo Crossings, 13295 Hartzog Rd, Winter Garden, FL 34787"}},
+{time:"8:00 PM",name:"McQueen's Social Lounge",tag:"venue",detail:{venue:"McQueen's Social Lounge",window:"8:00 PM – 11:00 PM",note:"Dresses for the ladies. $2K prepaid bar tab."}},
+{time:"11:00 PM",name:"Sessions",tag:"venue",detail:{venue:"Sessions",window:"11:00 PM – 2:00 AM",note:"10 bottles Tito's, 5-6 tables. Club. Walkable from McQueen's."}},
+]
+},
+{ day:"Saturday",date:"April 18, 2026",label:"EPCOT Day",
+events:[
+{time:"10:20 AM",name:"Meet at Spaceship Earth",tag:"epcot",detail:{location:"Base of the big silver ball, EPCOT entrance"}},
+{time:"11:00 AM",name:"Drink Around the World",tag:"epcot",detail:{route:"Counterclockwise: Mexico → Norway → China → Germany → Italy → America → Japan → Morocco → France → UK → Canada",pace:"Recommended ~30 min per country"}},
+]
+},
+{ day:"Sunday",date:"April 19, 2026",label:"Checkout & Return",
+events:[
+{time:"10:00 AM",name:"Hotel Checkout",tag:"transport",detail:{note:"Checkout at 10AM."}},
+{time:"10:00 AM",name:"All Buses Depart Orlando",tag:"transport",detail:{note:"Buses leave from hotel. Don't be late."}},
+{time:"~2:00 PM",name:"Arrive Back in Miami",tag:"transport",detail:{dropoff:"6000 San Amaro Drive, Coral Gables"}},
+]
+}
 ];
-
 const rooms = [
-  ["Josh Sackett","Bryce Beck"],["Harrison Steinberg","Dylan Rattet"],["Dru Czarkowski","Ben Gottesman"],
-  ["Zac Neirman","Evan Minsky"],["Ronnie Lenzo","Chris Genovese"],
-  ["Max Mahoney","Wyatt Shaw"],["Ari Kalish","Jason Hugh"],
-  ["Harrison Finneran","Michael Shin"],["Will Nelson","Joshua Stein"],["Peter Oskanian","Noah Ferry"],
-  ["Terrence Connelly","Zack Stevens"],["Zak Potter","Owen Fischbach"],["Grayson Wilhelm","Beckham Boymel"],
-  ["Erich Laschinski","Eli Winkler"],["William Rodriguez","Lincoln Carroll"],["Luis Davila","Nico Carusone"],
-  ["Rufus Moore","Nick Zinn"],["Lucas Regal","Brendan Cafferty"],
-  ["Alex Grossman","Jedidiah Glazer"],["Tye Ramirez","Graham Stroper"],["Jordan Katz","Jimmy Koch"],
-  ["Dylan Buchanan","Henry Roffman"],["Kristen Yelton","Sebastian Olivares"],["Josh Zola","Max Winter"],
-  ["Paul Rogers","Noel Sesmas"],["Jake Ferrando","Henry Goldberg"],
-  ["Colin Su"],["Steven Friedman"],["Carter Lutz"],["Krishen Goswami"],["Dylan Seigerman"],["Jack Cruger"],
-  ["Finley Sirowich"],["Charlie Cohen"],["Marcus McClanahan"],["Oli Krok"],["Cyrus Dhabhar"],["Sawyer Bland"],
-  ["Lorenzo Cavallino"],["Grant Horowitz"],["Sandy Baltay"],["Brady Ashker"],["Kyle Pasion"],
-  ["Jared Heiss"],["Carson Reinhardt"],["Matt Tanenbaum"],["The Castle Master"],
+["Josh Sackett","Bryce Beck"],["Harrison Steinberg","Dylan Rattet"],["Dru Czarkowski","Ben Gottesman"],
+["Zac Neirman","Evan Minsky"],["Ronnie Lenzo","Chris Genovese"],
+["Max Mahoney","Wyatt Shaw"],["Ari Kalish","Jason Hugh"],
+["Harrison Finneran","Michael Shin"],["Will Nelson","Joshua Stein"],["Peter Oskanian","Noah Ferry"],
+["Terrence Connelly","Zack Stevens"],["Zak Potter","Owen Fischbach"],["Grayson Wilhelm","Beckham Boymel"],
+["Erich Laschinski","Eli Winkler"],["William Rodriguez","Lincoln Carroll"],["Luis Davila","Nico Carusone"],
+["Rufus Moore","Nick Zinn"],["Lucas Regal","Brendan Cafferty"],
+["Alex Grossman","Jedidiah Glazer"],["Tye Ramirez","Graham Stroper"],["Jordan Katz","Jimmy Koch"],
+["Dylan Buchanan","Henry Roffman"],["Kristen Yelton","Sebastian Olivares"],["Josh Zola","Max Winter"],
+["Paul Rogers","Noel Sesmas"],["Jake Ferrando","Henry Goldberg"],
+["Colin Su"],["Steven Friedman"],["Carter Lutz"],["Krishen Goswami"],["Dylan Seigerman"],["Jack Cruger"],
+["Finley Sirowich"],["Charlie Cohen","Marcus McClanahan"],["Oli Krok"],["Cyrus Dhabhar"],["Sawyer Bland"],
+["Lorenzo Cavallino"],["Grant Horowitz"],["Sandy Baltay"],["Brady Ashker"],["Kyle Pasion"],
+["Jared Heiss"],["Carson Reinhardt"],["Matt Tanenbaum"],["The Castle Master"],
 ];
-
 const busList = [
-  {n:"Josh Sackett",s:2},{n:"Harrison Steinberg",s:2},{n:"Dru Czarkowski",s:2},{n:"Zac Neirman",s:2},
-  {n:"Ronnie Lenzo",s:2},{n:"Max Mahoney",s:2},{n:"Michael Shin",s:2},
-  {n:"Harrison Finneran",s:1},{n:"Will Nelson",s:2},{n:"Peter Oskanian",s:2},{n:"Terrence Connelly",s:2},
-  {n:"Dylan Rattet",s:2},{n:"Zak Potter",s:2},{n:"Grayson Wilhelm",s:2},{n:"Erich Laschinski",s:2},
-  {n:"William Rodriguez",s:2},{n:"Luis Davila",s:2},{n:"Rufus Moore",s:2},{n:"Lucas Regal",s:2},
-  {n:"Alex Grossman",s:2},{n:"Tye Ramirez",s:2},{n:"Sebastian Olivares",s:2},{n:"Henry Roffman",s:2},
-  {n:"Josh Zola",s:2},{n:"Cyrus Dhabhar",s:2},{n:"Sawyer Bland",s:2},{n:"Lorinzo Cavallino",s:2},
-  {n:"Grant Horowitz",s:2},{n:"Bryce Beck",s:2},{n:"Jordan Katz",s:2},{n:"Ben Gottesman",s:2},
-  {n:"Evan Minsky",s:2},{n:"Matt Tanenbaum",s:2},{n:"Chris Genovese",s:2},{n:"Wyatt Shaw",s:2},
-  {n:"Joshua Stein",s:2},{n:"Noah Ferry",s:2},
-  {n:"Zack Stevens",s:2},{n:"Dylan Buchanan",s:2},{n:"Owen Fischbach",s:2},{n:"Beckham Boymel",s:2},
-  {n:"Eli Winkler",s:2},{n:"Lincoln Carroll",s:2},{n:"Nico Carusone",s:2},{n:"Nick Zinn",s:2},
-  {n:"Jimmy Koch",s:2},{n:"Brendan Cafferty",s:2},{n:"Jedidiah Glazer",s:2},{n:"Graham Stroper",s:2},
-  {n:"Kristen Yelton",s:2},{n:"Max Winter",s:2},{n:"Dylan Seigerman",s:2},{n:"Finley Sirowich",s:2},
-  {n:"Jack Cruger",s:2},{n:"Paul Rogers",s:1},{n:"Brady Ashker",s:2},
+{n:"Josh Sackett",s:2},{n:"Harrison Steinberg",s:2},{n:"Dru Czarkowski",s:2},{n:"Zac Neirman",s:2},
+{n:"Ronnie Lenzo",s:2},{n:"Max Mahoney",s:2},{n:"Michael Shin",s:2},
+{n:"Harrison Finneran",s:1},{n:"Will Nelson",s:2},{n:"Peter Oskanian",s:2},{n:"Terrence Connelly",s:2},
+{n:"Dylan Rattet",s:2},{n:"Zak Potter",s:2},{n:"Grayson Wilhelm",s:2},{n:"Erich Laschinski",s:2},
+{n:"William Rodriguez",s:2},{n:"Luis Davila",s:2},{n:"Rufus Moore",s:2},{n:"Lucas Regal",s:2},
+{n:"Alex Grossman",s:2},{n:"Tye Ramirez",s:2},{n:"Sebastian Olivares",s:2},{n:"Henry Roffman",s:2},
+{n:"Josh Zola",s:2},{n:"Cyrus Dhabhar",s:2},{n:"Sawyer Bland",s:2},{n:"Lorinzo Cavallino",s:2},
+{n:"Grant Horowitz",s:2},{n:"Bryce Beck",s:2},{n:"Jordan Katz",s:2},{n:"Ben Gottesman",s:2},
+{n:"Evan Minsky",s:2},{n:"Matt Tanenbaum",s:2},{n:"Chris Genovese",s:2},{n:"Wyatt Shaw",s:2},
+{n:"Joshua Stein",s:2},{n:"Noah Ferry",s:2},
+{n:"Zack Stevens",s:2},{n:"Dylan Buchanan",s:2},{n:"Owen Fischbach",s:2},{n:"Beckham Boymel",s:2},
+{n:"Eli Winkler",s:2},{n:"Lincoln Carroll",s:2},{n:"Nico Carusone",s:2},{n:"Nick Zinn",s:2},
+{n:"Jimmy Koch",s:2},{n:"Brendan Cafferty",s:2},{n:"Jedidiah Glazer",s:2},{n:"Graham Stroper",s:2},
+{n:"Kristen Yelton",s:2},{n:"Max Winter",s:2},{n:"Dylan Seigerman",s:2},{n:"Finley Sirowich",s:2},
+{n:"Jack Cruger",s:2},{n:"Paul Rogers",s:1},{n:"Brady Ashker",s:2},
 ];
-
 function renderSchedule(){
-  const el=document.getElementById('page-schedule');let html='';
-  schedule.forEach(day=>{
-    html+=`<div class="day-card"><div class="day-header"><h2>${day.day} — ${day.label}</h2><span class="date">${day.date}</span></div>`;
-    day.events.forEach((ev,i)=>{
-      const id=day.day+'-'+i;
-      html+=`<div class="event-row" onclick="toggleDetail('${id}',this)">
-        <div class="event-time">${ev.time}</div>
-        <div class="event-name">${ev.name} <span class="event-tag tag-${ev.tag}">${ev.tag}</span></div>
-        <div class="event-chevron">›</div>
-      </div><div class="event-detail" id="detail-${id}"><dl class="detail-grid">`;
-      const d=ev.detail;
-      if(d.venue)html+=`<dt>Venue</dt><dd>${d.venue}</dd>`;
-      if(d.window)html+=`<dt>Time</dt><dd>${d.window}</dd>`;
-      if(d.cost)html+=`<dt>Cost</dt><dd>${d.cost}</dd>`;
-      if(d.location)html+=`<dt>Location</dt><dd>${d.location}</dd>`;
-      if(d.from)html+=`<dt>Pickup</dt><dd>${d.from}</dd>`;
-      if(d.dropoff)html+=`<dt>Drop-off</dt><dd>${d.dropoff}</dd>`;
-      if(d.hotel)html+=`<dt>Hotel</dt><dd>${d.hotel}</dd>`;
-      if(d.address)html+=`<dt>Address</dt><dd>${d.address}</dd>`;
-      if(d.route)html+=`<dt>Route</dt><dd>${d.route}</dd>`;
-      if(d.pace)html+=`<dt>Pace</dt><dd>${d.pace}</dd>`;
-      if(d.note)html+=`<dt>Note</dt><dd>${d.note}</dd>`;
-      html+=`</dl></div>`;
-    });
-    html+=`</div>`;
-  });
-  el.innerHTML=html;
+const el=document.getElementById('page-schedule');let html='';
+schedule.forEach(day=>{
+html+=`<div class="day-card"><div class="day-header"><h2>${day.day} — ${day.label}</h2><span class="date">${day.date}</span></div>`;
+day.events.forEach((ev,i)=>{
+const id=day.day+'-'+i;
+html+=`<div class="event-row" onclick="toggleDetail('${id}',this)">
+<div class="event-time">${ev.time}</div>
+<div class="event-name">${ev.name} <span class="event-tag tag-${ev.tag}">${ev.tag}</span></div>
+<div class="event-chevron">›</div>
+</div><div class="event-detail" id="detail-${id}"><dl class="detail-grid">`;
+const d=ev.detail;
+if(d.venue)html+=`<dt>Venue</dt><dd>${d.venue}</dd>`;
+if(d.window)html+=`<dt>Time</dt><dd>${d.window}</dd>`;
+if(d.cost)html+=`<dt>Cost</dt><dd>${d.cost}</dd>`;
+if(d.location)html+=`<dt>Location</dt><dd>${d.location}</dd>`;
+if(d.from)html+=`<dt>Pickup</dt><dd>${d.from}</dd>`;
+if(d.dropoff)html+=`<dt>Drop-off</dt><dd>${d.dropoff}</dd>`;
+if(d.hotel)html+=`<dt>Hotel</dt><dd>${d.hotel}</dd>`;
+if(d.address)html+=`<dt>Address</dt><dd>${d.address}</dd>`;
+if(d.route)html+=`<dt>Route</dt><dd>${d.route}</dd>`;
+if(d.pace)html+=`<dt>Pace</dt><dd>${d.pace}</dd>`;
+if(d.note)html+=`<dt>Note</dt><dd>${d.note}</dd>`;
+html+=`</dl></div>`;
+});
+html+=`</div>`;
+});
+el.innerHTML=html;
 }
-
 function renderRooming(){
-  const el=document.getElementById('page-rooming');
-  let html=`<h2 class="list-header">Rooming List</h2>
-    <div class="list-sub">TownePlace Suites at Flamingo Crossings &middot; 13295 Hartzog Rd, Winter Garden, FL 34787</div>
-    <input class="search-bar" placeholder="Search by name..." oninput="filterRooms(this.value)">
-    <div class="room-grid" id="room-grid">`;
-  rooms.forEach((r,i)=>{
-    const names = r[1] ? r[0]+'<br>'+r[1] : r[0];
-    const search = (r[0]+' '+(r[1]||'')).toLowerCase();
-    html+=`<div class="room-card" data-names="${search}">
-      <div><div class="room-num">Room ${i+1}</div><div class="room-names">${names}</div></div>
-    </div>`;
-  });
-  html+=`</div>`;
-  el.innerHTML=html;
+const el=document.getElementById('page-rooming');
+let html=`<h2 class="list-header">Rooming List</h2>
+<div class="list-sub">TownePlace Suites at Flamingo Crossings &middot; 13295 Hartzog Rd, Winter Garden, FL 34787</div>
+<input class="search-bar" placeholder="Search by name..." oninput="filterRooms(this.value)">
+<div class="room-grid" id="room-grid">`;
+rooms.forEach((r,i)=>{
+const names = r[1] ? r[0]+'<br>'+r[1] : r[0];
+const search = (r[0]+' '+(r[1]||'')).toLowerCase();
+html+=`<div class="room-card" data-names="${search}">
+<div><div class="room-num">Room ${i+1}</div><div class="room-names">${names}</div></div>
+</div>`;
+});
+html+=`</div>`;
+el.innerHTML=html;
 }
-
 function renderBus(){
-  const el=document.getElementById('page-bus');
-  let html=`<h2 class="list-header">Bus List</h2>
-    <input class="search-bar" placeholder="Search by name..." oninput="filterBus(this.value)">
-    <div class="bus-section"><div class="bus-title">Bus 1 & 2</div>
-      <div class="bus-meta">Both buses depart at 12:00 PM. Leaving from Frouse.</div>
-      <div class="bus-grid">`;
-  busList.forEach((b,j)=>{
-    html+=`<div class="bus-name" data-name="${b.n.toLowerCase()}"><span class="seat">${j+1}.</span>${b.n}<span style="float:right;color:var(--gold-dim);font-size:12px">${b.s} spot${b.s>1?'s':''}</span></div>`;
-  });
-  html+=`</div></div>`;
-  el.innerHTML=html;
+const el=document.getElementById('page-bus');
+let html=`<h2 class="list-header">Bus List</h2>
+<input class="search-bar" placeholder="Search by name..." oninput="filterBus(this.value)">
+<div class="bus-section"><div class="bus-title">Bus 1 & 2</div>
+<div class="bus-meta">Both buses depart at 12:00 PM. Leaving from Frouse.</div>
+<div class="bus-grid">`;
+busList.forEach((b,j)=>{
+html+=`<div class="bus-name" data-name="${b.n.toLowerCase()}"><span class="seat">${j+1}.</span>${b.n}<span style="float:right;color:var(--gold-dim);font-size:12px">${b.s} spot${b.s>1?'s':''}</span></div>`;
+});
+html+=`</div></div>`;
+el.innerHTML=html;
 }
-
 function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
-  document.querySelectorAll('.tab')[['schedule','rooming','bus'].indexOf(id)].classList.add('active');
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.getElementById('page-'+id).classList.add('active');
+document.querySelectorAll('.tab')[['schedule','rooming','bus'].indexOf(id)].classList.add('active');
 }
 function toggleDetail(id,row){
-  const det=document.getElementById('detail-'+id);
-  const wasOpen=det.classList.contains('show');
-  document.querySelectorAll('.event-detail').forEach(d=>d.classList.remove('show'));
-  document.querySelectorAll('.event-row').forEach(r=>r.classList.remove('expanded'));
-  if(!wasOpen){det.classList.add('show');row.classList.add('expanded');}
+const det=document.getElementById('detail-'+id);
+const wasOpen=det.classList.contains('show');
+document.querySelectorAll('.event-detail').forEach(d=>d.classList.remove('show'));
+document.querySelectorAll('.event-row').forEach(r=>r.classList.remove('expanded'));
+if(!wasOpen){det.classList.add('show');row.classList.add('expanded');}
 }
 function filterRooms(q){
-  q=q.toLowerCase();
-  document.querySelectorAll('#page-rooming .room-card').forEach(c=>{
-    c.style.display=(c.dataset.names||'').includes(q)?'':'none';
-  });
+q=q.toLowerCase();
+document.querySelectorAll('#page-rooming .room-card').forEach(c=>{
+c.style.display=(c.dataset.names||'').includes(q)?'':'none';
+});
 }
 function filterBus(q){
-  q=q.toLowerCase();
-  document.querySelectorAll('.bus-name').forEach(c=>{
-    c.style.display=(c.dataset.name||'').includes(q)?'':'none';
-  });
+q=q.toLowerCase();
+document.querySelectorAll('.bus-name').forEach(c=>{
+c.style.display=(c.dataset.name||'').includes(q)?'':'none';
+});
 }
 renderSchedule();renderRooming();renderBus();
 </script>
