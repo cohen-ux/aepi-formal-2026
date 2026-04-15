@@ -160,67 +160,68 @@ const busList = [
 function renderSchedule(){
 const el=document.getElementById('page-schedule');let html='';
 schedule.forEach(day=>{
-html+=\`<div class="day-card"><div class="day-header"><h2>\${day.day} \u2014 \${day.label}</h2><span class="date">\${day.date}</span></div>\`;
+html+=`<div class="day-card"><div class="day-header"><h2>${day.day} \u2014 ${day.label}</h2><span class="date">${day.date}</span></div>`;
 day.events.forEach((ev,i)=>{
 const id=day.day+'-'+i;
-html+=\`<div class="event-row" onclick="toggleDetail('\${id}',this)">
-<div class="event-time">\${ev.time}</div>
-<div class="event-name">\${ev.name} <span class="event-tag tag-\${ev.tag}">\${ev.tag}</span></div>
+html+=`<div class="event-row" onclick="toggleDetail('${id}',this)">
+<div class="event-time">${ev.time}</div>
+<div class="event-name">${ev.name} <span class="event-tag tag-${ev.tag}">${ev.tag}</span></div>
 <div class="event-chevron">\u203a</div>
-</div><div class="event-detail" id="detail-\${id}"><dl class="detail-grid">\`;
+</div><div class="event-detail" id="detail-${id}"><dl class="detail-grid">`;
 const d=ev.detail;
-if(d.venue)html+=\`<dt>Venue</dt><dd>\${d.venue}</dd>\`;
-if(d.window)html+=\`<dt>Time</dt><dd>\${d.window}</dd>\`;
-if(d.cost)html+=\`<dt>Cost</dt><dd>\${d.cost}</dd>\`;
-if(d.dresscode)html+=\`<dt>Dress Code</dt><dd>\${d.dresscode}</dd>\`;
-if(d.location)html+=\`<dt>Location</dt><dd>\${d.location}</dd>\`;
-if(d.from)html+=\`<dt>Pickup</dt><dd>\${d.from}</dd>\`;
-if(d.dropoff)html+=\`<dt>Drop-off</dt><dd>\${d.dropoff}</dd>\`;
-if(d.hotel)html+=\`<dt>Hotel</dt><dd>\${d.hotel}</dd>\`;
-if(d.address)html+=\`<dt>Address</dt><dd>\${d.address}</dd>\`;
-if(d.route)html+=\`<dt>Route</dt><dd>\${d.route}</dd>\`;
-if(d.pace)html+=\`<dt>Pace</dt><dd>\${d.pace}</dd>\`;
-if(d.note)html+=\`<dt>Note</dt><dd>\${d.note}</dd>\`;
-if(d.driving)html+=\`<dt>For Non-Bus People</dt><dd>\${d.driving}</dd>\`;
-html+=\`</dl></div>\`;
+if(d.venue)html+=`<dt>Venue</dt><dd>${d.venue}</dd>`;
+if(d.window)html+=`<dt>Time</dt><dd>${d.window}</dd>`;
+if(d.cost)html+=`<dt>Cost</dt><dd>${d.cost}</dd>`;
+if(d.dresscode)html+=`<dt>Dress Code</dt><dd>${d.dresscode}</dd>`;
+if(d.location)html+=`<dt>Location</dt><dd>${d.location}</dd>`;
+if(d.from)html+=`<dt>Pickup</dt><dd>${d.from}</dd>`;
+if(d.dropoff)html+=`<dt>Drop-off</dt><dd>${d.dropoff}</dd>`;
+if(d.hotel)html+=`<dt>Hotel</dt><dd>${d.hotel}</dd>`;
+if(d.address)html+=`<dt>Address</dt><dd>${d.address}</dd>`;
+if(d.route)html+=`<dt>Route</dt><dd>${d.route}</dd>`;
+if(d.pace)html+=`<dt>Pace</dt><dd>${d.pace}</dd>`;
+if(d.note)html+=`<dt>Note</dt><dd>${d.note}</dd>`;
+if(d.driving)html+=`<dt>For Non-Bus People</dt><dd>${d.driving}</dd>`;
+html+=`</dl></div>`;
 });
-html+=\`</div>\`;
+html+=`</div>`;
 });
 el.innerHTML=html;
 }
 function renderRooming(){
 const el=document.getElementById('page-rooming');
-let html=\`<h2 class="list-header">Rooming List</h2>
+let html=`<h2 class="list-header">Rooming List</h2>
 <div class="list-sub">TownePlace Suites at Flamingo Crossings &middot; 13295 Hartzog Rd, Winter Garden, FL 34787</div>
 <input class="search-bar" placeholder="Search by name..." oninput="filterRooms(this.value)">
-<div class="room-grid" id="room-grid">\`;
+<div class="room-grid" id="room-grid">`;
 rooms.forEach((r,i)=>{
 const names = r[1] ? r[0]+'<br>'+r[1] : r[0];
 const search = (r[0]+' '+(r[1]||'')).toLowerCase();
-html+=\`<div class="room-card" data-names="\${search}">
-<div><div class="room-num">Room \${i+1}</div><div class="room-names">\${names}</div></div>
-</div>\`;
+html+=`<div class="room-card" data-names="${search}">
+<div><div class="room-num">Room ${i+1}</div><div class="room-names">${names}</div></div>
+</div>`;
 });
-html+=\`</div>\`;
+html+=`</div>`;
 el.innerHTML=html;
 }
 function renderBus(){
 const el=document.getElementById('page-bus');
-let html=\`<h2 class="list-header">Bus List</h2>
+let html=`<h2 class="list-header">Bus List</h2>
 <input class="search-bar" placeholder="Search by name..." oninput="filterBus(this.value)">
 <div class="bus-section"><div class="bus-title">Bus 1 & 2</div>
 <div class="bus-meta">Both buses depart at 12:00 PM. Leaving from Frouse.</div>
-<div class="bus-grid">\`;
+<div class="bus-grid">`;
 busList.forEach((b,j)=>{
-html+=\`<div class="bus-name" data-name="\${b.n.toLowerCase()}"><span class="seat">\${j+1}.</span>\${b.n}<span style="float:right;color:var(--gold-dim);font-size:12px">\${b.s} spot\${b.s>1?'s':''}</span></div>\`;
+html+=`<div class="bus-name" data-name="${b.n.toLowerCase()}"><span class="seat">${j+1}.</span>${b.n}<span style="float:right;color:var(--gold-dim);font-size:12px">${b.s} spot${b.s>1?'s':''}</span></div>`;
 });
-html+=\`</div></div>\`;
+html+=`</div></div>`;
 el.innerHTML=html;
 }
 function showPage(id){
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
 document.getElementById('page-'+id).classList.add('active');
+document.query.add('active');
 document.querySelectorAll('.tab')[['schedule','rooming','bus'].indexOf(id)].classList.add('active');
 }
 function toggleDetail(id,row){
