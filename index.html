@@ -98,21 +98,24 @@ body{font-family:'Source Sans Pro',sans-serif;background:var(--navy);color:var(-
 <div class="page" id="page-bus"></div>
 <script>
 const schedule = [
-{ day:"Friday",date:"April 17, 2026",label:"Arrive + Night Out",
+{
+day:"Friday",date:"April 17, 2026",label:"Arrive + Night Out",
 events:[
 {time:"12:00 PM",name:"Both Buses Depart Miami",tag:"transport",detail:{from:"6000 San Amaro Drive, Coral Gables",note:"2 buses, both leave at noon. Be there 15 min early."}},
-{time:"4:00 PM",name:"Arrive at Hotel",tag:"transport",detail:{hotel:"TownePlace Suites at Flamingo Crossings, 13295 Hartzog Rd, Winter Garden, FL 34787",note:"Pick up your key at the front desk.<br>If you're driving, check-in starts at 4 PM."}},
+{time:"4:00 PM",name:"Arrive at Hotel",tag:"transport",detail:{hotel:"TownePlace Suites at Flamingo Crossings, 13295 Hartzog Rd, Winter Garden, FL 34787",note:"Pick up your key at the front desk.",driving:"If you're driving, check-in starts at 4 PM."}},
 {time:"8:00 PM",name:"McQueen's",tag:"venue",detail:{venue:"McQueen's Social Lounge",window:"8:00 PM – 11:00 PM",dresscode:"Going out Clothes",note:"$2K prepaid bar tab."}},
 {time:"11:00 PM",name:"Sessions",tag:"venue",detail:{venue:"Sessions",window:"11:00 PM – 2:00 AM",dresscode:"Going out Clothes",note:"10 bottles Tito's, 5-6 tables. Club. Walkable from McQueen's."}},
 ]
 },
-{ day:"Saturday",date:"April 18, 2026",label:"EPCOT Day",
+{
+day:"Saturday",date:"April 18, 2026",label:"EPCOT Day",
 events:[
 {time:"10:20 AM",name:"Meet at Spaceship Earth",tag:"epcot",detail:{location:"Base of the big silver ball, EPCOT entrance"}},
 {time:"11:00 AM",name:"Drink Around the World",tag:"epcot",detail:{route:"Counterclockwise: Mexico → Norway → China → Germany → Italy → America → Japan → Morocco → France → UK → Canada",pace:"Recommended ~30 min per country"}},
 ]
 },
-{ day:"Sunday",date:"April 19, 2026",label:"Checkout & Return",
+{
+day:"Sunday",date:"April 19, 2026",label:"Checkout & Return",
 events:[
 {time:"10:00 AM",name:"Hotel Checkout",tag:"transport",detail:{note:"Checkout at 10AM."}},
 {time:"10:00 AM",name:"All Buses Depart Orlando",tag:"transport",detail:{note:"Buses leave from hotel. Don't be late."}},
@@ -177,6 +180,7 @@ if(d.address)html+=`<dt>Address</dt><dd>${d.address}</dd>`;
 if(d.route)html+=`<dt>Route</dt><dd>${d.route}</dd>`;
 if(d.pace)html+=`<dt>Pace</dt><dd>${d.pace}</dd>`;
 if(d.note)html+=`<dt>Note</dt><dd>${d.note}</dd>`;
+if(d.driving)html+=`<dt>For Non-Bus People</dt><dd>${d.driving}</dd>`;
 html+=`</dl></div>`;
 });
 html+=`</div>`;
